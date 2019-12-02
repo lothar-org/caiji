@@ -1,6 +1,6 @@
 {
     "require": {
-        "jaeger/querylist": "^3.2",
+        "jaeger/querylist": "4.*",
         "jaeger/querylist-phantomjs": "^4.0"
     }
 }
