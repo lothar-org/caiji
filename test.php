@@ -6,12 +6,13 @@ require "vendor\autoload.php";
 use QL\Ext\PhantomJs;
 use QL\QueryList;
 
+/*初始化*/
 $ql = QueryList::getInstance();
-// Set PhantomJS bin path
-$ql->use(PhantomJs::class, 'D:/cmd/phantomjs/bin/phantomjs.exe');
-//or Custom function name
-$ql->use(PhantomJs::class, 'D:/cmd/phantomjs/bin/phantomjs.exe', 'browser');
+$jspath = 'D:/cmd/phantomjs/bin/phantomjs.exe';
+// $ql->use(PhantomJs::class, $jspath);//Set PhantomJS bin path
+$ql->use(PhantomJs::class, $jspath, 'browser');//or Custom function name
 
+/*示例*/
 // Example-1
 // 获取动态渲染的HTML:
 // $html = $ql->browser('https://m.toutiao.com')->getHtml();
@@ -72,8 +73,10 @@ $ql->use(PhantomJs::class, 'D:/cmd/phantomjs/bin/phantomjs.exe', 'browser');
 //     $r->setDelay(5); // 3 seconds
 //     return $r;
 // })->find('.title-box>a')->texts();
-
 // print_r($data->all());
+
+// 懒加载采集 连续动作：滚屏
+
 
 /**
  * 模拟登录
@@ -93,6 +96,7 @@ $ql->use(PhantomJs::class, 'D:/cmd/phantomjs/bin/phantomjs.exe', 'browser');
 //     ],
 // ]);
 // echo $ql->getHtml();
+
 // post和get连贯操作
 // http插件默认已经开启了全局cookie，post操作和get操作是cookie共享的,意味着你可以先调用post方法登录，然后get方法就可以采集所有登录后的页面。
 $ql = QueryList::post('http://xxxx.com/login', [
@@ -102,7 +106,7 @@ $ql = QueryList::post('http://xxxx.com/login', [
 $ql->get('http://xxx.com/admin/page');
 //echo $ql->getHtml();
 
-/*实战：模拟登陆GitHub*/
+// 实战：模拟登陆GitHub
 // 下面的这个例子，也是querylist官方网站给出的例子。先登陆github，然后再做个get请求。
 $ql = QueryList::getInstance();
 //手动设置cookie
