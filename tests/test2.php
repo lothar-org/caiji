@@ -6,18 +6,14 @@ use QL\Ext\PhantomJs;
 use QL\QueryList;
 
 $url = 'https://auction.jd.com/paimai_list.html';
+$config = include 'data/config.php';
 
 // $data = QueryList::get($url)->find('img')->attrs('data-lazy-img');
 // print_r($data->all());
 
 
 $ql = QueryList::getInstance();
-$jspath = 'D:/cmd/phantomjs/bin/phantomjs.exe';
-if (!is_file($jspath)) {
-    $jspath = 'D:/dev/phantomjs/bin/phantomjs.exe';
-}
-// $ql->use(PhantomJs::class, $jspath);
-$ql->use(PhantomJs::class, $jspath, 'browser');
+$ql->use(PhantomJs::class, $config['jspath'], 'browser');
 
 // $data = QueryList::get($url)->find('img')->attrs('src');
 // print_r($data->all());

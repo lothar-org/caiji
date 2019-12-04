@@ -7,11 +7,9 @@ use QL\Ext\PhantomJs;
 use QL\QueryList;
 
 /*初始化*/
+$config = include 'data/config.php';
 $ql = QueryList::getInstance();
-$jspath = 'D:/cmd/phantomjs/bin/phantomjs.exe';
-if (!is_file($jspath)) {
-    $jspath = 'D:/dev/phantomjs/bin/phantomjs.exe';
-}
+$jspath = $config['jspath'];
 // $ql->use(PhantomJs::class, $jspath);//Set PhantomJS bin path
 $ql->use(PhantomJs::class, $jspath, 'browser');//or Custom function name
 
