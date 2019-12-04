@@ -5,7 +5,11 @@ use JonnyW\PhantomJs\Client;
 // require_once 'vendor_phantomjs/jonnyw/php-phantomjs/src/JonnyW/PhantomJs/Client.php';
 
 $client = Client::getInstance();
-$client->getEngine()->setPath('D:/cmd/phantomjs/bin/phantomjs.exe');//填写自己的phantomjs路径
+$jspath = 'D:/cmd/phantomjs/bin/phantomjs.exe';
+if (!is_file($jspath)) {
+    $jspath = 'D:/dev/phantomjs/bin/phantomjs.exe';
+}
+$client->getEngine()->setPath($jspath);//填写自己的phantomjs路径
 
 /**
  * @see JonnyW\PhantomJs\Http\PdfRequest

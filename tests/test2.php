@@ -13,6 +13,9 @@ $url = 'https://auction.jd.com/paimai_list.html';
 
 $ql = QueryList::getInstance();
 $jspath = 'D:/cmd/phantomjs/bin/phantomjs.exe';
+if (!is_file($jspath)) {
+    $jspath = 'D:/dev/phantomjs/bin/phantomjs.exe';
+}
 // $ql->use(PhantomJs::class, $jspath);
 $ql->use(PhantomJs::class, $jspath, 'browser');
 
@@ -36,8 +39,8 @@ $obj = $ql->browser(function (\JonnyW\PhantomJs\Http\RequestInterface $r) use ($
 // print_r($data);
 
 // $data = $obj->find('img')->attrs('src');
-// $data = $obj->find('img')->attrs('data-lazy-img');
-// print_r($data->all());
+$data = $obj->find('img')->attrs('data-lazy-img');
+print_r($data->all());
 
 
 
