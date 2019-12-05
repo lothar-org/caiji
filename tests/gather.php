@@ -3,9 +3,10 @@
 require "vendor\autoload.php";
 use JonnyW\PhantomJs\Client;
 // require_once 'vendor_phantomjs/jonnyw/php-phantomjs/src/JonnyW/PhantomJs/Client.php';
+$config = include 'data/config.php';
 
 $client = Client::getInstance();
-$client->getEngine()->setPath('D:/cmd/phantomjs/bin/phantomjs.exe');//填写自己的phantomjs路径
+$client->getEngine()->setPath($config['jspath']);//填写自己的phantomjs路径
 
 /**
  * @see JonnyW\PhantomJs\Http\PdfRequest

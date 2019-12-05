@@ -22,3 +22,24 @@ print_r($links);
 $data = QueryList::get('http://cms.querylist.cc/bizhi/453.html')->find('img')->attrs('src');
 //打印结果
 print_r($data->all());
+
+
+
+ //采集开发者头条
+$ql = QueryList::getInstance();
+//注册一个myHttp方法到QueryList对象
+$ql->bind('myHttp',function ($url){
+    $html = file_get_contents($url);
+    $this->setHtml($html);
+    return $this;
+});
+//然后就可以通过注册的名字来调用
+$data = $ql->myHttp('https://toutiao.io')->find('h3 a')->texts();
+print_r($data->all());
+//或者这样用
+$data = $ql->rules([
+    'title' => ['h3 a','text'],
+    'link' => ['h3 a','href']
+])->myHttp('https://toutiao.io')->query()->getData();
+print_r($data->all());
+
