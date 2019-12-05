@@ -1,13 +1,14 @@
 <?php
-require "vendor\autoload.php";
-
-use QL\Ext\PhantomJs;
+require "../init.php";
 use QL\QueryList;
+use QL\Ext\PhantomJs;
+
+/*初始化*/
+$ql = QueryList::getInstance();
 
 /*京东拍卖数据采集*/
 $url    = 'https://auction.jd.com/paimai_list.html';
 $url    = 'https://auction.jd.com/paimai_list.html?t=1&limit=40&page=2';
-$config = include 'data/config.php';
 
 /*DOM 采集不到数据？？？*/
 // $data = QueryList::get($url)->find('li.item .p-name')->texts();
@@ -17,7 +18,7 @@ $config = include 'data/config.php';
 // print_r($data->all());
 
 /*JS*/
-$ql = QueryList::getInstance();
+// $ql = QueryList::getInstance();
 $ql->use(PhantomJs::class, $config['jspath'], 'browser'); //注册一个browser方法到QueryList对象
 // $data = $ql->browser($url)->find('#plist li a.p-img img')->texts();
 // print_r($data->all());

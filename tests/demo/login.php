@@ -1,8 +1,10 @@
 <?php
-require "vendor\autoload.php";
+require "../init.php";
 use QL\QueryList;
 
+/*初始化*/
 $ql = QueryList::getInstance();
+
 //手动设置cookie
 $jar = new \GuzzleHttp\Cookie\CookieJar();
 //获取到登录表单

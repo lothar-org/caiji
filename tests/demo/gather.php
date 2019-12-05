@@ -1,6 +1,5 @@
 <?php
-
-require "vendor\autoload.php";
+require "../vendor/autoload.php";
 use JonnyW\PhantomJs\Client;
 // require_once 'vendor_phantomjs/jonnyw/php-phantomjs/src/JonnyW/PhantomJs/Client.php';
 $config = include 'data/config.php';

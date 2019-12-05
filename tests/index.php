@@ -7,10 +7,7 @@
     <title>采集 - queryList</title>
 </head>
 <body>
-    <a href="/demo.php" target="_blank">Demo</a>
-
-    <a href="/test.php" target="_blank">Test</a>
-    
-    <a href="/gather.php" target="_blank">Gather</a>
+    <!-- <a href="/demo/demo.php" target="_blank">Demo</a> -->
+    <!-- <a href="/goto/cai1.php" target="_blank">Gather</a> -->
 </body>
 </html>

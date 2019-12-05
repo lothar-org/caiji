@@ -1,5 +1,5 @@
 <?php
-require "vendor\autoload.php";
+require "../init.php";
 use QL\QueryList;
 
 $data = QueryList::get('https://www.baidu.com/s?wd=QueryList')

@@ -1,17 +1,16 @@
 <?php
+require "../init.php";
 // Usage
-require "vendor\autoload.php";
-
-// Installation Plugin
-use QL\Ext\PhantomJs;
 use QL\QueryList;
+use QL\Ext\PhantomJs;
 
 /*初始化*/
-$config = include 'data/config.php';
 $ql = QueryList::getInstance();
+
 $jspath = $config['jspath'];
 // $ql->use(PhantomJs::class, $jspath);//Set PhantomJS bin path
 $ql->use(PhantomJs::class, $jspath, 'browser');//or Custom function name
+
 
 /*示例*/
 // Example-1
@@ -109,7 +108,7 @@ $ql->get('http://xxx.com/admin/page');
 
 // 实战：模拟登陆GitHub
 // 下面的这个例子，也是querylist官方网站给出的例子。先登陆github，然后再做个get请求。
-$ql = QueryList::getInstance();
+// $ql = QueryList::getInstance();
 //手动设置cookie
 $jar = new \GuzzleHttp\Cookie\CookieJar();
 //获取到登录表单
