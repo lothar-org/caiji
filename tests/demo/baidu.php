@@ -6,6 +6,7 @@ use QL\QueryList;
 /*初始化*/
 // $ql = QueryList::getInstance();
 
+/*百度搜索 1、百度安全验证？；*/
 $url    = 'https://www.baidu.com/s';
 $params = ['wd' => 'QueryList'];
 

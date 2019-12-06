@@ -11,6 +11,8 @@ $jspath = $config['jspath'];
 // $ql->use(PhantomJs::class, $jspath);//Set PhantomJS bin path
 $ql->use(PhantomJs::class, $jspath, 'browser');//or Custom function name
 
+// loadHTML();
+// libxml_use_internal_errors(true);
 
 /*示例*/
 // Example-1
@@ -177,3 +179,15 @@ $data = QueryList::html($html)->rules(array(
     return $item;
 });
 print_r($data);
+
+/**
+ * 批量采集
+ */
+$ql = QueryList::rules([
+  //....
+]);
+foreach ($urls as $url) {
+    $ql->get($url)->query()->getData();
+    // 释放资源，销毁内存占用
+    $ql->destruct();
+}
