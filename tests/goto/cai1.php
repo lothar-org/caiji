@@ -28,7 +28,8 @@ $ql->destruct(); //释放资源，销毁内存占用
 $url = 'http://www.gpai.net/sf/item2.do?Web_Item_ID=26033';
 // $data = $ql->get($url)->getHtml();
 // print_r($data);
-$data = $ql->get($url)->rules([
+// 使用$ql时下面的结果始终为空！！！
+$data = QueryList::get($url)->rules([
     '拍卖物' => ['.details-main .d-m-title', 'text'],
     '成交价' => ['.details-main .d-m-price b', 'text'],
     '起拍价' => ['.details-main .d-m-tb #Price_Start', 'text'],
