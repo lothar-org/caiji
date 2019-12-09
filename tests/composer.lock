@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f54cdad8f5101c1a17fc38d3f1f209f",
+    "content-hash": "3d1d05c4585cf646a9d3cc985d806e23",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -546,6 +546,45 @@
             ],
             "description": "QueryList Plugin: Use PhantomJS to crawl Javascript dynamically rendered pages.(headless WebKit ) 使用PhantomJS采集JavaScript动态渲染的页面",
             "time": "2017-09-30T13:33:02+00:00"
+        },
+        {
+            "name": "jaeger/querylist-rule-baidu",
+            "version": "4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jae-jae/QueryList-Rule-Baidu.git",
+                "reference": "b79ede9342eea0af817181c2d45c5bdda7c3c511"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jae-jae/QueryList-Rule-Baidu/zipball/b79ede9342eea0af817181c2d45c5bdda7c3c511",
+                "reference": "b79ede9342eea0af817181c2d45c5bdda7c3c511",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "jaeger/querylist": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "QL\\Ext\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jaeger",
+                    "email": "JaegerCode@gmail.com"
+                }
+            ],
+            "description": "QueryList Plugin: Baidu searcher. QueryList百度搜索插件",
+            "time": "2017-10-01T15:05:17+00:00"
         },
         {
             "name": "jakoch/phantomjs-installer",

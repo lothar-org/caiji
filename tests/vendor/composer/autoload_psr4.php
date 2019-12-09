@@ -15,7 +15,7 @@ return array(
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\DependencyInjection\\' => array($vendorDir . '/symfony/dependency-injection'),
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
-    'QL\\Ext\\' => array($vendorDir . '/jaeger/querylist-phantomjs'),
+    'QL\\Ext\\' => array($vendorDir . '/jaeger/querylist-phantomjs', $vendorDir . '/jaeger/querylist-rule-baidu'),
     'QL\\' => array($vendorDir . '/jaeger/querylist/src'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),

@@ -561,6 +561,47 @@
         "description": "QueryList Plugin: Use PhantomJS to crawl Javascript dynamically rendered pages.(headless WebKit ) 使用PhantomJS采集JavaScript动态渲染的页面"
     },
     {
+        "name": "jaeger/querylist-rule-baidu",
+        "version": "4.0.1",
+        "version_normalized": "4.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jae-jae/QueryList-Rule-Baidu.git",
+            "reference": "b79ede9342eea0af817181c2d45c5bdda7c3c511"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jae-jae/QueryList-Rule-Baidu/zipball/b79ede9342eea0af817181c2d45c5bdda7c3c511",
+            "reference": "b79ede9342eea0af817181c2d45c5bdda7c3c511",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "jaeger/querylist": "dev-master"
+        },
+        "time": "2017-10-01T15:05:17+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "QL\\Ext\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jaeger",
+                "email": "JaegerCode@gmail.com"
+            }
+        ],
+        "description": "QueryList Plugin: Baidu searcher. QueryList百度搜索插件"
+    },
+    {
         "name": "jakoch/phantomjs-installer",
         "version": "2.1.1-p08",
         "version_normalized": "2.1.1.0-patch08",
