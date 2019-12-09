@@ -6,7 +6,7 @@ use QL\Ext\PhantomJs;
 /*初始化*/
 $ql = QueryList::getInstance();
 
-/*公拍网*/
+/*全国公共资源交易平台*/
 $ql->use(PhantomJs::class, $config['jspath'], 'browser');
 
 // 列表页
