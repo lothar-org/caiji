@@ -1,5 +1,5 @@
-ThinkPHP 5.0
-===============
+ThinkPHP 5.0.24 with extend
+===========================
 
 [![Total Downloads](https://poser.pugx.org/topthink/think/downloads)](https://packagist.org/packages/topthink/think)
 [![Latest Stable Version](https://poser.pugx.org/topthink/think/v/stable)](https://packagist.org/packages/topthink/think)
@@ -31,9 +31,7 @@ ThinkPHP5在保持快速开发和大道至简的核心理念不变的同时，PH
 详细开发文档参考 [ThinkPHP5完全开发手册](http://www.kancloud.cn/manual/thinkphp5)
 
 ## 目录结构
-
 初始的目录结构如下：
-
 ~~~
 www  WEB部署目录（或者子目录）
 ├─application           应用目录
@@ -82,23 +80,26 @@ www  WEB部署目录（或者子目录）
 ├─think                 命令行入口文件
 ~~~
 
-> router.php用于php自带webserver支持，可用于快速测试
-> 切换到public目录后，启动命令：php -S localhost:8888  router.php
-> 上面的目录结构和名称是可以改变的，这取决于你的入口文件和配置参数。
+# 快速测试
+> 如果你不想安装任何WEB服务器，可以直接使用PHP自带的WebServer支持，并且运行router.php来运行测试。
+> 进入命令行，切换到public目录后，启动命令：php -S localhost:8888 router.php
+    接下来可以直接访问 http://localhost:8888
+> 上面的目录结构和名称是可以改变的，这取决于你的入口文件和配置参数。 
+> S 一定要大写，端口号可以随意设置，只要和已有的不冲突，如果要停止服务，直接在命令行下面按CTRL+C即可退出。
+
+# 添加新的模块可以使用控制台命令来生成
+> php think build --module demo
 
 ## 命名规范
-
 `ThinkPHP5`遵循PSR-2命名规范和PSR-4自动加载规范，并且注意如下规范：
 
 ### 目录和文件
-
 *   目录不强制规范，驼峰和小写+下划线模式均支持；
 *   类库、函数文件统一以`.php`为后缀；
 *   类的文件名均以命名空间定义，并且命名空间的路径和类库文件所在路径一致；
 *   类名和类文件名保持一致，统一采用驼峰法命名（首字母大写）；
 
 ### 函数和类、属性命名
-
 *   类的命名采用驼峰法，并且首字母大写，例如 `User`、`UserType`，默认不需要添加后缀，例如`UserController`应该直接命名为`User`；
 *   函数的命名使用小写字母和下划线（小写字母开头）的方式，例如 `get_client_ip`；
 *   方法的命名使用驼峰法，并且首字母小写，例如 `getUserName`；
@@ -106,28 +107,19 @@ www  WEB部署目录（或者子目录）
 *   以双下划线“__”打头的函数或方法作为魔法方法，例如 `__call` 和 `__autoload`；
 
 ### 常量和配置
-
 *   常量以大写字母和下划线命名，例如 `APP_PATH`和 `THINK_PATH`；
 *   配置参数以小写字母和下划线命名，例如 `url_route_on` 和`url_convert`；
 
 ### 数据表和字段
-
 *   数据表和字段采用小写加下划线方式命名，并注意字段名不要以下划线开头，例如 `think_user` 表和 `user_name`字段，不建议使用驼峰和中文作为数据表字段命名。
 
 ## 参与开发
-
 请参阅 [ThinkPHP5 核心框架包](https://github.com/top-think/framework)。
 
 ## 版权信息
-
 ThinkPHP遵循Apache2开源协议发布，并提供免费使用。
-
 本项目包含的第三方源码和二进制文件之版权信息另行标注。
-
 版权所有Copyright © 2006-2018 by ThinkPHP (http://thinkphp.cn)
-
 All rights reserved。
-
 ThinkPHP® 商标和著作权所有者为上海顶想信息科技有限公司。
-
 更多细节参阅 [LICENSE.txt](LICENSE.txt)
