@@ -44,6 +44,7 @@ class Index extends Controller
         $ql->use(AbsoluteUrl::class, 'absoluteUrl', 'absoluteUrlHelper');
 
         /*列表页*/
+        echo '<hr>列表页：<br>';
         // $html = $ql->browser($url)->getHtml();
         // print_r($html);
 
@@ -58,27 +59,25 @@ class Index extends Controller
         // $html = $obj->getHtml();
         // print_r($html);
 
-        // $data = $obj->find('.LM_list .list_subtitle .ah')->texts();
-        // dump($data);
-
         $data = $obj->range('.LM_list')
             ->rules([
                 'title' => ['h4>a', 'text'],
                 'link'  => ['h4>a', 'href'],
                 'yuan'  => ['.list_subtitle .slfyName', 'text'],
                 '案号'    => ['.list_subtitle .ah', 'text'],
-            ])->queryData(function ($item) use ($ql) {
-            //使用帮助函数单独转换某个链接
-            $item['link'] = $ql->absoluteUrlHelper('http://wenshu.court.gov.cn/website/wenshu/tmp/', $item['link']);
-            return $item;
-        });
+            ])
+            ->queryData(function ($item) use ($ql) {
+                //使用帮助函数单独转换某个链接
+                $item['link'] = $ql->absoluteUrlHelper('http://wenshu.court.gov.cn/website/wenshu/tmp/', $item['link']);
+                return $item;
+            });
 
-        echo '<hr>列表页：<br>';
         dump($data);
 
         // $ql->destruct(); //释放资源，销毁内存占用
 
         /*详情页*/
+        echo '<hr>详情页：<br>';
         // $url = 'http://wenshu.court.gov.cn/website/wenshu/181107ANFZ0BXSK4/index.html?docId=22b1b49367aa47e0befaab0b00b5badb';
         // $obj = $ql->browser(function (\JonnyW\PhantomJs\Http\RequestInterface $r) use ($url) {
         //     $r->setMethod('GET');
@@ -91,13 +90,12 @@ class Index extends Controller
         // $data2 = $obj->find('.del_center #1')->text();
         // print_r($data2);
 
-        echo '<hr>详情页：<br>';
         foreach ($data as $v) {
             $url   = $v['link'];
             $data2 = $ql->browser(function (\JonnyW\PhantomJs\Http\RequestInterface $r) use ($url) {
                 $r->setMethod('GET');
                 $r->setUrl($url);
-                $r->setTimeout(30000); // 10 seconds
+                $r->setTimeout(10000); // 10 seconds
                 $r->setDelay(2); // 3 seconds
                 return $r;
             })
@@ -184,7 +182,6 @@ class Index extends Controller
         // 列表页 data-form
         $url = 'https://sf.taobao.com/item_list.htm';
 
-
         // 详情页
         $url = 'https://sf-item.taobao.com/sf_item/607747368525.htm?spm=a213w.7398504.paiList.17.32a97ddatM2zOS';
     }
@@ -193,10 +190,10 @@ class Index extends Controller
     public function ggzy()
     {
         // 列表页
-        $url  = 'http://deal.ggzy.gov.cn/ds/deal/dealList.jsp?HEADER_DEAL_TYPE=01';
-        
+        $url = 'http://deal.ggzy.gov.cn/ds/deal/dealList.jsp?HEADER_DEAL_TYPE=01';
+
         // 详情页
-        $url = 'http://www.ggzy.gov.cn/information/html/a/340000/0104/201912/05/003409cdf6bb89a74b05835b9c2f9a6c7fd7.shtml';//套用了Iframe框架
+        $url = 'http://www.ggzy.gov.cn/information/html/a/340000/0104/201912/05/003409cdf6bb89a74b05835b9c2f9a6c7fd7.shtml'; //套用了Iframe框架
     }
 
     /*天津土地交易中心*/
